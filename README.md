@@ -43,6 +43,13 @@ The addresses of the deployed contracts on the testnet are:
 * Freeda Pass: `0x00cA3FeC394D8472A25B2e7358823ECC1946Bf01`
 * ERC-20 Token: `0xBcB82aa4f0931D4cec6dB412c5d8740843489AbA`
 
+
+The contracts are also deployed on OKC Mainnet:
+* Athlete NFT: `0x37b0004d4B8e902F87FfE420b0E4AC3571cc5646`
+* Freeda Pass: `0x5fc3EC968fF81dDD406Dc27B4AaACd76A6058Fb3`
+* ERC-20 Token: `0xe4bACedEce4C7798A121AC6BF2dDD7ab14045a92`
+
+
 ## Webserver
 
 This project also comes with a webserver to interact with the deployed contracts. The webserver is automatically configured to point to the above testnet contract addresses.
