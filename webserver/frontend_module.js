@@ -73,6 +73,9 @@ async function showProfileTab(tab) {
   document.getElementById("profile-section-prediction").style.display = tab == "prediction" ? "" : "none"
   document.getElementById("profile-tab-prediction").className = tab == "prediction" ? "profile-side-nav-tab-active" : "profile-side-nav-tab-inactive"
 
+  document.getElementById("profile-section-leaderboard").style.display = tab == "leaderboard" ? "" : "none"
+  document.getElementById("profile-tab-leaderboard").className = tab == "leaderboard" ? "profile-side-nav-tab-active" : "profile-side-nav-tab-inactive"
+
   document.getElementById("profile-main-header").textContent = (function() {
     'use strict';
     if (tab == "wallet") {
@@ -81,6 +84,8 @@ async function showProfileTab(tab) {
       return "Marketplace"
     } else if (tab == "prediction") {
       return "Prediction Game"
+    } else if (tab == "leaderboard") {
+      return "Leaderboard"
     }
   }());
 }
@@ -348,6 +353,9 @@ You probably already have a Freeda Pass and are trying to obtain another one.`)
         resolvePrediction(2)
       }
     }
+  }
+  document.getElementById("profile-tab-leaderboard").onclick = () => {
+    showProfileTab("leaderboard")
   }
 }
 
