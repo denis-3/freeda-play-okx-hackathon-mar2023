@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Freeda Play - Demo</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <p style="display: none" id="hidden-main-account"></p>
+    <p style="display: none" id="hidden-domain"></p>
+    <div id="login-div">
+      <div id="login-modal">
+        <div id="login-header">
+          <img src="./assets/freeda_play_logo.png" alt="Freeda Play logo">
+          <h1>Freeda Play</h1>
+        </div>
+        <div id="login-main-action">
+          <h2>Sign In</h2>
+          <div class="login-provider-button" onclick="loginWithOkxWallet()">
+            <img src="./assets/okx_wallet_logo.png" alt="OKX Wallet logo">
+            <p>Login with OKX Wallet</p>
+          </div>
+          <div class="login-provider-button" onclick="loginWithUnstoppable()">
+            <img src="./assets/unstoppable_logo.png" alt="Unstoppable Domains logo">
+            <p>Login with Unstoppable Domains</p>
+          </div>
+        </div>
+        <div id="login-enter-email" style="display: none;">
+          <h4>Please enter your email address to proceed</h4>
+          <div class="text-input-wrapper">
+            <input type="email" name="email" placeholder="name@youremail.com" id="email-input">
+          </div>
+          <input type="checkbox" name="newsletter" id="newsletter-checkbox">
+          <label for="newsletter-checkbox">Please keep me updated on Freeda Play news, airdrops, and developments.</label>
+          <div id="sign-in-button"><p>Sign In</p></div>
+        </div>
+      </div>
+    </div>
+    <div id="profile-div" style="display: none">
+      <div id="profile-side-nav">
+        <div id="profile-side-nav-header">
+          <img src="./assets/freeda_play_logo.png" alt="Freeda Play Logo">
+          <h2>Freeda Play</h2>
+        </div>
+        <div class="profile-side-nav-tab-active" id="profile-tab-wallet">
+          <img src="./assets/profile_side_nav/wallet.png" alt="wallet">
+          <img src="./assets/profile_side_nav/wallet_blue.png" alt="wallet (blue)">
+          <p>Wallet</p>
+        </div>
+        <div class="profile-side-nav-tab-inactive" id="profile-tab-marketplace">
+          <img src="./assets/profile_side_nav/marketplace.png" alt="marketplace">
+          <img src="./assets/profile_side_nav/marketplace_blue.png" alt="marketplace (blue)">
+          <p>Marketplace</p>
+        </div>
+        <div class="profile-side-nav-tab-inactive" id="profile-tab-prediction">
+          <img src="./assets/profile_side_nav/ball.png" alt="ball">
+          <img src="./assets/profile_side_nav/ball_blue.png" alt="ball (blue)">
+          <p>Prediction Game</p>
+        </div>
+        <div class="profile-side-nav-tab-inactive" id="profile-tab-leaderboard">
+          <img src="./assets/profile_side_nav/leaderboard.png" alt="leaderboard">
+          <img src="./assets/profile_side_nav/leaderboard_blue.png" alt="leaderboard (blue)">
+          <p>Leaderboard</p>
+        </div>
+        <div class="profile-side-nav-tab-inactive" onclick="logout()">
+          <img src="./assets/profile_side_nav/log_out.png" alt="log out">
+          <img src="./assets/profile_side_nav/log_out.png" alt="log out">
+          <p>Log out</p>
+        </div>
+      </div>
+      <div id="background-grey-rect">
+        <h2 id="profile-main-header">Your Wallet</h2>
+        <div id="profile-account-display">
+          <div class="profile-currency-display">
+            <img src="./assets/okx_wallet_logo.png" alt="okc token logo">
+            <p id="okc-token-display"></p>
+          </div>
+          <div class="profile-currency-display" id="get-erc20-token" style="cursor: pointer;">
+            <img src="./assets/usdc_logo.png" alt="usdc logo">
+            <p id="dummy-erc20-balance-display"></p>
+          </div>
+          <p id="profile-name-display"></p>
+          <img src="./assets/avatar.png" alt="avatar">
+        </div>
+      </div>
+      <div id="profile-section-wallet">
+        <p id="loading-indicator"><u>Loading...Please wait...</u></p>
+        <h3>Athlete NFTs</h3>
+        <div class="profile-nft-display"></div>
+        <h3>Freeda Pass</h3>
+        <div class="profile-nft-display"></div>
+      </div>
+      <div id="profile-section-marketplace" style="display: none;">
+        <h3>Athlete NFTs</h3>
+        <div class="marketplace-nft-display">
+          <div class="profile-nft-card">
+            <img src="./assets/nft/0.png">
+            <p><b>Jesus Ferreira</b><br>130 USDC</p>
+          </div>
+          <div class="profile-nft-card">
+            <img src="./assets/nft/1.png">
+            <p><b>Jordan Morris</b><br>119 USDC</p>
+          </div>
+          <div class="profile-nft-card">
+            <img src="./assets/nft/42.png">
+            <p><b>Javier Hernandez</b><br>105 USDC</p>
+          </div>
+        </div>
+        <h3>Freeda Pass</h3>
+        <div class="marketplace-nft-display">
+          <div class="profile-nft-card" id="buy-freeda-pass">
+            <img src="./assets/nft/freeda_pass.png">
+            <p><b>Freeda Pass</b><br>65 USDC</p>
+          </div>
+        </div>
+      </div>
+      <div id="profile-section-prediction" style="display: none;">
+        <h3>Choose your winning team</h3>
+        <div class="prediction-card">
+          <div>
+            <p>Feb 25, 2023</p>
+          </div>
+          <div>
+            <div class="team-predict-button">
+              <img src="./assets/team_logo/Nashville.png" alt="">
+              <p>Nashville</p>
+            </div>
+            <div>
+              <p class="prediction-card-middle-text">VS</p>
+              <div class="tie-predict-button">
+                Tie
+              </div>
+            </div>
+            <div class="team-predict-button">
+              <img src="./assets/team_logo/New_York_City.png" alt="">
+              <p>New York City</p>
+            </div>
+          </div>
+          <div class="prediction-card-footer">
+            <p>Your prediction was...</p>
+          </div>
+        </div>
+        <div class="prediction-card">
+          <div>
+            <p>Feb 25, 2023</p>
+          </div>
+          <div>
+            <div class="team-predict-button">
+              <img src="./assets/team_logo/Inter_Miami.png" alt="">
+              <p>Inter Miama</p>
+            </div>
+            <div>
+              <p class="prediction-card-middle-text">VS</p>
+              <div class="tie-predict-button">
+                Tie
+              </div>
+            </div>
+            <div class="team-predict-button">
+              <img src="./assets/team_logo/Montreal.png" alt="">
+              <p>Montreal</p>
+            </div>
+          </div>
+          <div class="prediction-card-footer">
+            <p>Your prediction was...</p>
+          </div>
+        </div>
+        <div class="prediction-card">
+          <div>
+            <p>Feb 25, 2023</p>
+          </div>
+          <div>
+            <div class="team-predict-button">
+              <img src="./assets/team_logo/Philadelphia.png" alt="">
+              <p>Philadelphia</p>
+            </div>
+            <div>
+              <p class="prediction-card-middle-text">VS</p>
+              <div class="tie-predict-button">
+                Tie
+              </div>
+            </div>
+            <div class="team-predict-button">
+              <img src="./assets/team_logo/Columbus.png" alt="">
+              <p>Columbus</p>
+            </div>
+          </div>
+          <div class="prediction-card-footer">
+            <p>Your prediction was...</p>
+          </div>
+        </div>
+        <div class="prediction-card">
+          <div>
+            <p>Feb 25, 2023</p>
+          </div>
+          <div>
+            <div class="team-predict-button">
+              <img src="./assets/team_logo/Cincinnati.png" alt="">
+              <p>Cincinnati</p>
+            </div>
+            <div>
+              <p class="prediction-card-middle-text">VS</p>
+              <div class="tie-predict-button">
+                Tie
+              </div>
+            </div>
+            <div class="team-predict-button">
+              <img src="./assets/team_logo/Houston_Dynamo.png" alt="">
+              <p>Houston</p>
+            </div>
+          </div>
+          <div class="prediction-card-footer">
+            <p>Your prediction was...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Parcel changes the image sources a bit; these lines here to garuntee that NFT images are compiled and built with the app -->
+    <img id="athlete-nft-0" data-athlete-text="<b>Jesus Ferreira</b><br>130 USDC" src="./assets/nft/0.png" alt="Image loader for athlete card" style="display: none">
+    <img id="athlete-nft-1" data-athlete-text="<b>Julian Morris</b><br>119 USDC" src="./assets/nft/1.png" alt="Image loader for athlete card" style="display: none">
+    <img id="athlete-nft-42" data-athlete-text="<b>Javier Hernandez</b><br>105 USDC" src="./assets/nft/42.png" alt="Image loader for athlete card" style="display: none">
+    <img id="freeda-pass-nft" data-nft-text="<b>Freeda Pass</b><br>65 USDC" src="./assets/nft/freeda_pass.png" alt="Image loader for freeda pass" style="display: none">
+    <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+    <script type="module">
+import "./frontend_module.js"
+
+window.onload = () => {
+  window.initFreedaPlayModule()
+}
+    </script>
+  </body>
+</html>
