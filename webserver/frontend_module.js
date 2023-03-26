@@ -1,11 +1,12 @@
 import UAuth from '@uauth/js'
 
-const uauth = new UAuth({
-  clientID: "df3fde2b-2174-4ea8-a65b-8f00da7e6d64",
-  redirectUri: "http://localhost:80",
-  scope: "openid wallet email profile:optional"
-  // scope: "wallet email profile"
-})
+var uauth
+
+try {
+  uauth = new UAuth({
+    // Your Unstoppable Domains client information here
+  })
+} catch(e) { console.error(e) }
 
 const okxw = window.okxwallet
 
