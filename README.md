@@ -53,8 +53,14 @@ This project also comes with a webserver to interact with the deployed contracts
 * Includes all contract methods that users would interact with (i.e. buy/sell athlete NFT, buy Freeda Pass)
 * Easy deployment
 
-## Deploying the Webserver
+### Deploying the Webserver
 
 Make sure to `cd` into the `webserver` folder, and install the required libraries:
 
-`npm install parcel @uauth/js`
+`npm install parcel @uauth/js`.
+
+Then, start the `parcel` webserver:
+
+`npx parcel index.html -p 80`.
+
+Go to [`http://localhost`](http://localhost) to interact with the webserver. You should also install [OKX Wallet](https://www.okx.com/web3) for your browser to interact with the smart contract.
