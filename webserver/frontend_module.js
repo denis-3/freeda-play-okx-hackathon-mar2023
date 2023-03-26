@@ -57,6 +57,13 @@ function fillArrayWithConsecutiveNumbers(length) {
 }
 
 function showProfileTab(tab) {
+  if (tab == "prediction") {
+    const passBalance = await freedaPassContract.methods.balanceOf(mainAccount).call()
+    if (passBalance == 0) {
+      return alert("You need a Freeda Pass to participate in prediction game! Buy one at the marketplace.")
+    }
+  }
+
   document.getElementById("profile-section-wallet").style.display = tab == "wallet" ? "" : "none"
   document.getElementById("profile-tab-wallet").className = tab == "wallet" ? "profile-side-nav-tab-active" : "profile-side-nav-tab-inactive"
 
