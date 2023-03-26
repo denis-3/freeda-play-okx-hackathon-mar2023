@@ -45,7 +45,7 @@ The addresses of the deployed contracts on the testnet are:
 
 ## Webserver
 
-This project also comes with a webserver to interact with the deployed contracts.
+This project also comes with a webserver to interact with the deployed contracts. The webserver is automatically configured to point to the above testnet contract addresses.
 
 ### Features
 
@@ -64,3 +64,5 @@ Then, start the `parcel` webserver:
 `npx parcel index.html -p 80`.
 
 Go to [`http://localhost`](http://localhost) to interact with the webserver. You should also install [OKX Wallet](https://www.okx.com/web3) for your browser to interact with the smart contract.
+
+We have deployed an instance of this webserver to a DigitalOcean droplet at [`http://143.244.153.222/`](http://143.244.153.222/).
