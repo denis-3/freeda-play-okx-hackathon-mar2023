@@ -28,6 +28,12 @@ There are three smart contracts:
 Clone the repository then `cd` into the `okc_contracts` folder. Install `truffle` and `@openzeppelin/contracts`:
 * `npm install truffle -g`
 * `npm install @openzeppelin/contracts`
+
 The `truffle-config.js` file comes configured with the OKC Testnet. Make sure to put the deploying wallet's mnemonic in the `wallet_mnemonic.txt` file and then run:
+
 `truffle migrate --network okctestnet`
-to deploy all three contracts to the testnet. If you'd like to interact with the contracts, run `truffle console --network okctestnet`. The `AthleteNft`, `FreedaPass`, and `DummyErc20`
+
+to deploy all three contracts to the testnet. If you'd like to interact with the contracts, run
+
+`truffle console --network okctestnet`.
+The `AthleteNft`, `FreedaPass`, and `DummyErc20` global variables will be present to represent the deployed contracts.
