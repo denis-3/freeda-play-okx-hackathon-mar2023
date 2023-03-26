@@ -1,0 +1,433 @@
+html, body {
+  font-family: "Arial";
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* Login */
+/* Main Login Action */
+#login-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#login-modal {
+  background: #FFFFFF;
+  border: 1px solid #DBDBDB;
+  border-radius: 16px;
+  padding: 64px;
+  width: fit-content;
+  margin: auto;
+  max-width: 526px;
+}
+
+#login-header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 69px;
+}
+
+#login-header > img {
+  height: 57px;
+  width: auto;
+  margin-right: 10px;
+}
+
+#login-header > h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  width: fit-content;
+  text-align: center;
+  padding: 0;
+}
+
+.login-provider-button {
+  background: #F7F7F7;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  padding: 8px;
+  margin: 32px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+#login-modal > .login-provider-button:last-child {
+  margin-bottom: 0;
+}
+
+.login-provider-button > img {
+  border-radius: 8px;
+  height: 3em;
+}
+
+.login-provider-button > p {
+  width: 100%;
+  margin: 0 94px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Login Enter Email */
+
+.text-input-wrapper {
+  background: #F7F7F7;
+  border-radius: 8px;
+  margin-bottom: 21px;
+}
+
+.text-input-wrapper > input[type=text],
+.text-input-wrapper > input[type=email] {
+  background: rgba(0,0,0,0);
+  padding: 21px 24px;
+  border: 0;
+  outline: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#sign-in-button {
+  padding: 21px 175px;
+  background: #1242FD;
+  border-radius: 8px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 51px;
+  margin-bottom: 18px;
+  user-select: none;
+  cursor: pointer;
+}
+
+#sign-in-button > p {
+  color: white;
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+}
+
+/* Profile Display */
+#profile-div {
+  background: #F5F5F5;
+  width: 100vw;
+  height: 100vh;
+  padding: calc(38px + 4em) 0 0 0;
+}
+
+#profile-div > h2:first-of-type {
+  margin-top: 0;
+}
+
+#background-grey-rect {
+  position: fixed;
+  background: #F5F5F5;
+  top: 0;
+  padding: 38px 38px 15px 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+
+#background-grey-rect > h2 {
+  margin: 0;
+}
+
+#profile-account-display {
+  background: white;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#profile-account-display > p {
+  margin: 15px;
+}
+
+#profile-account-display > p:last-of-type {
+  margin: 15px 15px 15px 50px;
+}
+
+#profile-account-display > img {
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.profile-currency-display {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 13px;
+  background: #F7F7F7;
+  border-radius: 27px;
+  margin-left: 10px;
+}
+
+.profile-currency-display > p {
+  margin: 0;
+  color: #8E8E8E;
+}
+
+.profile-currency-display > img {
+  height: 24px;
+  margin: 0 5px 0 0;
+  border-radius: 50%;
+}
+
+#dummy-erc20-balance-display::after {
+  content: " USDC"
+}
+
+#okc-token-display::after {
+  content: " OKT"
+}
+
+/* Profile Side Nav */
+
+#profile-side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  height: 100vh;
+  padding: 38px;
+}
+
+#profile-side-nav-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+#profile-side-nav-header > img {
+  height: 38px;
+  margin-right: 8px;
+}
+
+#profile-side-nav-header > h2 {
+  margin: 0;
+}
+
+.profile-side-nav-tab-active,
+.profile-side-nav-tab-inactive {
+  margin: 0 0 28px 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  user-select: none;
+}
+
+.profile-side-nav-tab-active > p,
+.profile-side-nav-tab-inactive > p {
+  margin: 0;
+}
+
+.profile-side-nav-tab-active > p {
+  font-weight: bold;
+}
+
+.profile-side-nav-tab-active > img,
+.profile-side-nav-tab-inactive > img {
+  height: 1.5em;
+  margin-right: 12px;
+}
+
+.profile-side-nav-tab-active > img:first-of-type {
+  display: none;
+}
+
+.profile-side-nav-tab-inactive > img:last-of-type {
+  display: none;
+}
+
+#profile-side-nav > div:nth-last-child(2) {
+  margin: 0 0 82px 0;
+}
+
+/* NFT Display */
+
+#profile-nft-display,
+.marketplace-nft-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  /* margin-bottom: 48px; */
+}
+
+.profile-nft-card {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  width: fit-content;
+  padding-bottom: 5px;
+  display: inline-block;
+  margin-right: 64px;
+  margin-bottom: 64px;
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
+}
+
+.profile-nft-card > img {
+  height: 314px;
+}
+
+.profile-nft-card > p {
+  margin: 13px auto 11px 15px;
+  display: block;
+}
+
+/* Marketplace */
+
+.profile-nft-card {
+  cursor: pointer;
+}
+
+.profile-nft-card::after {
+  width: 100%;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  background: #1242FD;
+  border-radius: 0 0 10px 10px;
+  height: 48px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.25s ease;
+  transform: translateY(100%);
+}
+
+.profile-nft-display > .profile-nft-card::after {
+  content: "Sell";
+}
+
+.marketplace-nft-display > .profile-nft-card::after {
+  content: "Buy";
+}
+
+.profile-nft-card:hover::after {
+  transform: translateY(0);
+}
+
+#profile-freeda-pass-card {
+  cursor: initial;
+}
+
+#profile-freeda-pass-card:hover::after {
+  transform: translateY(100%);
+}
+
+
+/* Prediction */
+
+.prediction-card {
+  background: #FFFFFF;
+  border: 1px solid #CECECE;
+  border-radius: 8px;
+  padding: 32px;
+  width: fit-content;
+  transition: all 0.125s ease;
+  display: inline-block;
+  margin: 0 15px 15px;
+  transform: translateX(-15px);
+  width: 475px;
+}
+
+.prediction-card > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.prediction-card > div:first-of-type {
+  margin-bottom: 30px;
+}
+
+.prediction-card > div > div:not([class]) {
+  margin: 0 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.prediction-card > div > div > .prediction-card-middle-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.prediction-card > div:last-of-type {
+  margin-bottom: 0;
+}
+
+.prediction-card > div > .team-predict-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  border: 1px solid #CECECE;
+  border-radius: 8px;
+  padding: 20px 40px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.prediction-card > div > .team-predict-button:hover {
+  background: rgba(18, 66, 253, 0.15);
+}
+
+.prediction-card > div > .team-predict-button > img {
+  height: 56px;
+}
+
+.prediction-card > div > .team-predict-button > p {
+  margin-bottom: 0;
+}
+
+.prediction-card > div > p {
+  margin: 0;
+}
+
+.tie-predict-button {
+  color: white;
+  background: #1242FD;
+  border-radius: 36px;
+  padding: 8px 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.125s ease;
+}
+
+.prediction-card > .prediction-card-footer {
+  transition: all 0.5s ease;
+  color: white;
+  user-select: none;
+}
