@@ -18,5 +18,8 @@ module.exports = async function (deployer) {
     BigInt(5*10**18) // default Pass price
   )
 
-  await athleteNftDeployment.configureAthleteNft(42, BigInt(1 * 10**18), 1000)
+  // Configure some athlete NFTs (id, price, maxSupply)
+  await athleteNftDeployment.configureAthleteNft(0, BigInt(1 * 130**18), 1000)
+  await athleteNftDeployment.configureAthleteNft(1, BigInt(1 * 119**18), 1250)
+  await athleteNftDeployment.configureAthleteNft(42, BigInt(1 * 105**18), 1750)
 };
