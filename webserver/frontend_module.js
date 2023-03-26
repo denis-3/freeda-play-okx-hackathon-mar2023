@@ -56,7 +56,7 @@ function fillArrayWithConsecutiveNumbers(length) {
   return arr;
 }
 
-function showProfileTab(tab) {
+async function showProfileTab(tab) {
   if (tab == "prediction") {
     const passBalance = await freedaPassContract.methods.balanceOf(mainAccount).call()
     if (passBalance == 0) {
