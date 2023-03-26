@@ -33,7 +33,28 @@ The `truffle-config.js` file comes configured with the OKC Testnet. Make sure to
 
 `truffle migrate --network okctestnet`
 
-to deploy all three contracts to the testnet. If you'd like to interact with the contracts, run
+to deploy all three contracts to the testnet. This command also configures 3 athlete NFTs with ids `0`, `1`, and `42`. If you'd like to interact with the contracts manually in the console, run
 
 `truffle console --network okctestnet`.
 The `AthleteNft`, `FreedaPass`, and `DummyErc20` global variables will be present to represent the deployed contracts.
+
+The addresses of the deployed contracts on the testnet are:
+* Athlete NFT: `0xb479E4bcD1c45245997c83887c75B89f642436d8`
+* Freeda Pass: `0x00cA3FeC394D8472A25B2e7358823ECC1946Bf01`
+* ERC-20 Token: `0xBcB82aa4f0931D4cec6dB412c5d8740843489AbA`
+
+## Webserver
+
+This project also comes with a webserver to interact with the deployed contracts.
+
+### Features
+
+* Simple UI and UX
+* Includes all contract methods that users would interact with (i.e. buy/sell athlete NFT, buy Freeda Pass)
+* Easy deployment
+
+## Deploying the Webserver
+
+Make sure to `cd` into the `webserver` folder, and install the required libraries:
+
+`npm install parcel @uauth/js`
