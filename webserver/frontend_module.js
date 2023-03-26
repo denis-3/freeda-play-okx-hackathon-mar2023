@@ -2,11 +2,11 @@ import UAuth from '@uauth/js'
 
 const uauth = new UAuth({
   clientID: "18cc770a-bd23-4454-aca6-0f145d881f0d",
-  redirectUri: "http://localhost:3000",
+  redirectUri: "http://localhost",
   scope: "openid wallet email profile:optional social:optional"
 })
 
-const okxw = window.okxwallet
+var okxw = window.okxwallet
 
 var mainAccountHtml,
   domainHtml,
@@ -17,6 +17,9 @@ var mainAccountHtml,
   dummyErc20Contract,
   freedaPassContract,
   loginProvider // can be "u" for Unstoppable, or "o" for OKX Wallet
+
+
+console.log("Hello, there! Please see this project's GitHub page at https://github.com/denis-levine/freeda-play-okx-hackathon-mar2023")
 
 
 function insertCharacterFromEnd(str, char, positionFromEnd) {
@@ -99,6 +102,17 @@ window.initFreedaPlayModule = () => {
 }
 
 window.renderProfile = async () => {
+  // If user doesn't have OKX wallet installed, fall back to window.ethereum
+  if (!window.okxwallet) {
+    okxw = window.ethereum
+  }
+  // re-request accounts to make sure that the user's Unstoppable Domains account matches their wallet account
+  const accounts = await okxw.request({ method: 'eth_requestAccounts' });
+  if (accounts[0].toLowerCase() !== mainAccount.toLowerCase() && loginProvider == "u") {
+    alert(`Your Unstoppable Domains Ethereum wallet does not match that from your wallet provider.
+Make sure that the wallet address that owns ${domain} is selected in your Web3 wallet extension (e.g. MetaMask, OKX Wallet).`)
+    window.location.reload()
+  }
   document.body.style.background = "#F5F5F5"
   document.getElementById("login-div").style.display = "none"
   document.getElementById("profile-div").style.display = ""
@@ -351,6 +365,10 @@ window.continueLogin = () => {
 }
 
 window.loginWithUnstoppable = async () => {
+  // Login with Unstoppable Domains does not work with the external droplet since it is not https (which is required by Unstoppable)
+  if (!window.location.href.startsWith("http://localhost/")) {
+    return alert("Unfortunatley, login with Unstoppable Domains does not work on the droplet. Please see this project's GitHub page to deploy your own webserver and enable login with Unstoppable Domains.")
+  }
   try {
     const authorization = await uauth.loginWithPopup()
     mainAccount = authorization.idToken.wallet_address
