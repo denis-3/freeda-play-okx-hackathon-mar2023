@@ -57,7 +57,10 @@ This project also comes with a webserver to interact with the deployed contracts
 
 Make sure to `cd` into the `webserver` folder, and install the required libraries:
 
-`npm install parcel @uauth/js`.
+```
+$ npm install parcel --save-dev
+$ npm install @uauth/js --save
+```
 
 Then, start the `parcel` webserver:
 
