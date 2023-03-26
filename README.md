@@ -66,6 +66,6 @@ Then, start the `parcel` webserver:
 
 `npx parcel index.html -p 80`.
 
-Go to [`http://localhost`](http://localhost) to interact with the webserver. You should also install [OKX Wallet](https://www.okx.com/web3) for your browser to interact with the smart contract.
+Go to [`http://localhost`](http://localhost) to interact with the webserver. You should also install [OKX Wallet](https://www.okx.com/web3) for your browser to interact with the smart contract. To obtain the test ERC-20 token (to purchase Athlete NFT and Freeda Pass), click on your "USDC" balance in the top right corner of the app and it will start a contract interaction to mint you 100 test ERC-20 coins.
 
 We have deployed an instance of this webserver to a DigitalOcean droplet at [`http://143.244.153.222/`](http://143.244.153.222/).
